@@ -1,10 +1,10 @@
 package creational.factoryPattern;
 
 public class ElectronicApplianceFactory {
-    static public ElectronicAppliances getAppliance(String appliance){
-        switch (appliance){
-            case "AC": return new AC();
-            case "TV": return new TV();
+    static public ElectronicAppliances getAppliance(ApplianceType type){
+        switch (type){
+            case TV: return new TV();
+            case AC: return new AC();
             default: return null;
         }
     }
