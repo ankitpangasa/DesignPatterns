@@ -2,26 +2,28 @@ package structural.Composite;
 
 public class Menu extends Item{
     public Menu(String name, Boolean available, int price) {
-        this.name = name;
-        this.available = available;
-        this.price = price;
+        setName(name);
+        setAvailable(available);
+        setPrice(price);
     }
 
     public void add(Item item){
-        this.subitems.add(item);
+        getSubitems().add(item);
     }
 
     public void remove(Item item){
-        this.subitems.remove(item);
+        getSubitems().remove(item);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if(price != -1)
-            sb.append(name + "," + available + "," + price + "\n");
-        for(Item item: this.subitems){
-            sb.append(name + " -> " + item.toString() + "\n");
+        if(getPrice() != -1)
+            sb.append(getName() + "," + getAvailable() + "," + getPrice() + "\n");
+        else
+            sb.append(getName() + "," + getAvailable() + "\n");
+        for(Item item: getSubitems()){
+            sb.append(item.toString());
         }
         return sb.toString();
     }
