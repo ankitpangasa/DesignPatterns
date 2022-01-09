@@ -1,4 +1,4 @@
-package structural.Composite;
+package structural.composite;
 
 public class Menu extends Item{
     public Menu(String name, Boolean available, int price) {
