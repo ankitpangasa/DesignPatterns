@@ -13,10 +13,12 @@ public class DBSingletonWithLazyLoadingAndThreadSafe {
     }
 
     //getInstance method
-    public static DBSingletonWithLazyLoadingAndThreadSafe getInstance(){
-        synchronized (DBSingletonWithLazyLoadingAndThreadSafe.class) {
-            if (instance == null)
-                instance = new DBSingletonWithLazyLoadingAndThreadSafe();
+    public static DBSingletonWithLazyLoadingAndThreadSafe getInstance() {
+        if (instance == null) {
+            synchronized (DBSingletonWithLazyLoadingAndThreadSafe.class) {
+                if(instance == null)
+                    instance = new DBSingletonWithLazyLoadingAndThreadSafe();
+            }
         }
         return instance;
     }
